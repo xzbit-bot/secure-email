@@ -1,0 +1,59 @@
+{
+  "name": "@xzbit-bot/secure-email",
+  "version": "0.0.0",
+  "description": "Shh it's a secret!",
+  "main": "dist/index.js",
+  "author": "Romain Bourjot <romain.bourjot@xzbit-bot.com>",
+  "license": "CECILL-C",
+  "private": false,
+  "homepage": "https://github.com/xzbit-bot/secure-email#readme",
+  "bugs": "https://github.com/xzbit-bot/secure-email/issues",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/xzbit-bot/secure-email.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "commit": "git-cz",
+    "lint": "eslint './src/**/*.ts' './tests/**/*.ts'",
+    "lint:fix": "eslint --fix './src/**/*.ts' './tests/**/*.ts'",
+    "preflight": "yarn typecheck && yarn lint && yarn test",
+    "test": "mocha -r ts-node/register 'tests/**/*.ts'",
+    "typecheck": "tsc --noEmit"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn preflight",
+      "pre-push": "yarn preflight"
+    }
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/chai-as-promised": "^7.1.3",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.20",
+    "@types/openpgp": "^4.4.14",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "commitizen": "^4.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.17.0",
+    "husky": "^4.3.7",
+    "mocha": "^8.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "openpgp": "^4.10.9"
+  }
+}
