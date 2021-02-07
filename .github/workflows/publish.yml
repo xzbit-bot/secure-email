@@ -19,6 +19,8 @@ jobs:
         run: yarn preflight
       - name: Define NPM tag
         run: echo "CUSTOM_NPM_TAG=$(echo ${GITHUB_REF:11} | grep -Eio '[a-z]+')" >> $GITHUB_ENV
+      - name: Build
+        run: yarn build
       - name: Publish
         run: yarn publish --new-version "${GITHUB_REF:11}" --no-git-tag-version --access public --tag ${CUSTOM_NPM_TAG:-latest}
         env:
