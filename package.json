@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --project tsconfig.production.json",
     "commit": "git-cz",
     "lint": "eslint './src/**/*.ts' './tests/**/*.ts'",
     "lint:fix": "eslint --fix './src/**/*.ts' './tests/**/*.ts'",
